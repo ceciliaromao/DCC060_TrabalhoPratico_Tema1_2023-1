@@ -3,7 +3,8 @@ SELECT
   V.NumeroVoo,
   V.HoraPartida,
   V.HoraChegada,
-  A.TipoAeronave
+  A.TipoAeronave,
+  A.Capacidade
 FROM
   Voo V
   INNER JOIN VooAeronave VA ON V.NumeroVoo = VA.NumeroVoo
@@ -25,14 +26,16 @@ FROM
 -- Query 3: Detalhes dos voos com informações sobre aeroportos de partida e chegada
 SELECT
   V.NumeroVoo,
-  V.HoraPartida,
-  V.HoraChegada,
   AP.NomeAeroporto AS Partida,
+  V.HoraPartida,
   AC.NomeAeroporto AS Chegada
+  V.HoraChegada,
 FROM
   Voo V
-  INNER JOIN Aeroporto AP ON V.AeroportoPartida = AP.CodigoAeroporto
-  INNER JOIN Aeroporto AC ON V.AeroportoChegada = AC.CodigoAeroporto;
+INNER JOIN VooPartida VP ON V.NumeroVoo = VP.NumeroVoo
+INNER JOIN Aeroporto AP ON VP.CodigoAeroporto = AP.CodigoAeroporto
+INNER JOIN VooChegada VC ON V.NumeroVoo = VC.NumeroVoo
+INNER JOIN Aeroporto AC ON VC.CodigoAeroporto = AC.CodigoAeroporto;
 
 -- Query 4: Detalhes dos bilhetes comprados, incluindo informações do passageiro
 SELECT
@@ -50,6 +53,7 @@ SELECT
   F.Nome,
   F.Sobrenome,
   F.Cargo,
+  F.Salario,
   E.DataInicioEmprego,
   E.DataFimEmprego
 FROM
