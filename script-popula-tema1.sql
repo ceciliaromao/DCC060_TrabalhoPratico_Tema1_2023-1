@@ -12,81 +12,85 @@ VALUES
   (
     'Maria',
     'Santos',
-    'Avenida B, 456',
+    'Rua B, 456',
     '987654321',
     'maria.santos@email.com'
   ),
   (
     'Carlos',
     'Oliveira',
-    'Rua C, 789',
-    '567890123',
+    'Av. X, 789',
+    '111223344',
     'carlos.oliveira@email.com'
   ),
   (
     'Ana',
     'Pereira',
-    'Avenida D, 101',
-    '345678901',
+    'Rua Y, 987',
+    '555666777',
     'ana.pereira@email.com'
   ),
   (
     'Pedro',
-    'Martins',
-    'Rua E, 234',
-    '234567890',
-    'pedro.martins@email.com'
+    'Ferreira',
+    'Av. Z, 654',
+    '999888777',
+    'pedro.ferreira@email.com'
+  ),
+  (
+    'Fernanda',
+    'Lima',
+    'Rua C, 321',
+    '333222111',
+    'fernanda.lima@email.com'
+  ),
+  (
+    'Roberto',
+    'Costa',
+    'Av. D, 456',
+    '777888999',
+    'roberto.costa@email.com'
+  ),
+  (
+    'Mariana',
+    'Almeida',
+    'Rua E, 987',
+    '555777888',
+    'mariana.almeida@email.com'
+  ),
+  (
+    'Lucas',
+    'Ribeiro',
+    'Av. F, 123',
+    '111555888',
+    'lucas.ribeiro@email.com'
   ),
   (
     'Julia',
-    'Lima',
-    'Avenida F, 567',
-    '678901234',
-    'julia.lima@email.com'
-  ),
-  (
-    'Fernando',
-    'Souza',
-    'Rua G, 890',
-    '890123456',
-    'fernando.souza@email.com'
-  ),
-  (
-    'Cristina',
-    'Costa',
-    'Avenida H, 111',
-    '456789012',
-    'cristina.costa@email.com'
-  ),
-  (
-    'Eduardo',
-    'Ribeiro',
-    'Rua I, 222',
-    '901234567',
-    'eduardo.ribeiro@email.com'
-  ),
-  (
-    'Isabela',
-    'Almeida',
-    'Avenida J, 333',
-    '123789456',
-    'isabela.almeida@email.com'
+    'Martins',
+    'Rua G, 456',
+    '333111444',
+    'julia.martins@email.com'
   );
 
 -- Inserção de dados na tabela Aeroporto
 INSERT INTO
-  Aeroporto (NomeAeroporto, Localizacao)
+  Aeroporto (CodigoAeroporto, NomeAeroporto, Localizacao)
 VALUES
-  ('Aeroporto A', 'Cidade A'),
-  ('Aeroporto B', 'Cidade B'),
-  ('Aeroporto C', 'Cidade C'),
-  ('Aeroporto D', 'Cidade D'),
-  ('Aeroporto E', 'Cidade E'),
-  ('Aeroporto F', 'Cidade F'),
-  ('Aeroporto G', 'Cidade G'),
-  ('Aeroporto H', 'Cidade H'),
-  ('Aeroporto I', 'Cidade I'),
-  ('Aeroporto J', 'Cidade J');
+  (
+    'GIG',
+    'Aeroporto Internacional do Rio de Janeiro - Galeão',
+    'Rio de Janeiro'
+  ),
+  ('GRU', 'Aeroporto de Guarulhos', 'São Paulo'),
+  ('BSB', 'Aeroporto de Brasília', 'Brasília'),
+  ('CNF', 'Aeroporto de Confins', 'Belo Horizonte'),
+  ('SSA', 'Aeroporto de Salvador', 'Salvador'),
+  ('REC', 'Aeroporto do Recife', 'Recife'),
+  ('FOR', 'Aeroporto de Fortaleza', 'Fortaleza'),
+  ('POA', 'Aeroporto Salgado Filho', 'Porto Alegre'),
+  ('FLN', 'Aeroporto Hercílio Luz', 'Florianópolis'),
+  ('CWB', 'Aeroporto Afonso Pena', 'Curitiba');
 
 -- Inserção de dados na tabela Aeronave
 INSERT INTO
@@ -94,14 +98,14 @@ INSERT INTO
 VALUES
   ('Boeing 737', 150),
   ('Airbus A320', 180),
-  ('Boeing 747', 400),
-  ('Airbus A380', 550),
-  ('Embraer E190', 100),
+  ('Embraer E195', 120),
   ('Boeing 777', 300),
-  ('Airbus A330', 250),
-  ('Bombardier CRJ900', 90),
-  ('Airbus A350', 300),
-  ('Embraer E145', 50);
+  ('Airbus A350', 250),
+  ('Boeing 767', 200),
+  ('Embraer E175', 90),
+  ('Airbus A330', 220),
+  ('Boeing 747', 400),
+  ('Embraer E190', 110);
 
 -- Inserção de dados na tabela Voo
 INSERT INTO
@@ -114,74 +118,74 @@ INSERT INTO
   )
 VALUES
   (
-    1,
-    2,
-    '2023-12-01 08:00:00',
-    '2023-12-01 10:00:00',
+    'GIG',
+    'GRU',
+    '2023-12-04 10:00:00',
+    '2023-12-04 12:00:00',
     'Boeing 737'
   ),
   (
-    2,
-    3,
-    '2023-12-02 12:00:00',
-    '2023-12-02 15:00:00',
+    'GRU',
+    'GIG',
+    '2023-12-05 14:30:00',
+    '2023-12-05 16:30:00',
     'Airbus A320'
   ),
   (
-    3,
-    4,
-    '2023-12-03 16:00:00',
-    '2023-12-03 18:00:00',
-    'Boeing 747'
+    'BSB',
+    'CNF',
+    '2023-12-06 08:45:00',
+    '2023-12-06 09:45:00',
+    'Embraer E195'
   ),
   (
-    4,
-    5,
-    '2023-12-04 20:00:00',
-    '2023-12-05 02:00:00',
-    'Airbus A380'
-  ),
-  (
-    5,
-    6,
-    '2023-12-05 10:30:00',
-    '2023-12-05 12:30:00',
-    'Embraer E190'
-  ),
-  (
-    6,
-    7,
-    '2023-12-06 14:00:00',
-    '2023-12-06 16:30:00',
+    'SSA',
+    'REC',
+    '2023-12-07 16:00:00',
+    '2023-12-07 18:00:00',
     'Boeing 777'
   ),
   (
-    7,
-    8,
-    '2023-12-07 18:00:00',
-    '2023-12-07 20:30:00',
-    'Airbus A330'
-  ),
-  (
-    8,
-    9,
-    '2023-12-08 22:00:00',
-    '2023-12-09 01:00:00',
-    'Bombardier CRJ900'
-  ),
-  (
-    9,
-    10,
-    '2023-12-10 05:00:00',
-    '2023-12-10 07:00:00',
+    'FOR',
+    'POA',
+    '2023-12-08 12:30:00',
+    '2023-12-08 15:00:00',
     'Airbus A350'
   ),
   (
-    10,
-    1,
-    '2023-12-11 08:30:00',
-    '2023-12-11 10:30:00',
-    'Embraer E145'
+    'FLN',
+    'CWB',
+    '2023-12-09 09:15:00',
+    '2023-12-09 10:15:00',
+    'Boeing 767'
+  ),
+  (
+    'GIG',
+    'FOR',
+    '2023-12-10 20:00:00',
+    '2023-12-10 23:00:00',
+    'Embraer E175'
+  ),
+  (
+    'CNF',
+    'SSA',
+    '2023-12-11 11:30:00',
+    '2023-12-11 13:30:00',
+    'Airbus A330'
+  ),
+  (
+    'POA',
+    'FLN',
+    '2023-12-12 18:45:00',
+    '2023-12-12 20:45:00',
+    'Boeing 747'
+  ),
+  (
+    'CWB',
+    'BSB',
+    '2023-12-13 14:00:00',
+    '2023-12-13 16:00:00',
+    'Embraer E190'
   );
 
 -- Inserção de dados na tabela Bilhete
@@ -193,91 +197,71 @@ INSERT INTO
     PrecoBilhete
   )
 VALUES
-  (1, 1, 10, 150.00),
-  (2, 2, 15, 200.00),
-  (3, 3, 20, 250.00),
-  (4, 4, 25, 300.00),
-  (5, 5, 30, 180.00),
-  (6, 6, 5, 280.00),
-  (7, 7, 12, 320.00),
-  (8, 8, 18, 180.00),
-  (9, 9, 22, 200.00),
-  (10, 10, 8, 150.00);
+  (1, 1, 'A01', 200.00),
+  (2, 2, 'B03', 180.00),
+  (3, 3, 'C05', 150.00),
+  (4, 4, 'D02', 300.00),
+  (5, 5, 'E07', 250.00),
+  (6, 6, 'F04', 200.00),
+  (7, 7, 'G09', 120.00),
+  (8, 8, 'H06', 220.00),
+  (9, 9, 'I11', 400.00),
+  (10, 10, 'J08', 110.00);
 
 -- Inserção de dados na tabela FuncionarioAeroporto
 INSERT INTO
   FuncionarioAeroporto (Nome, Sobrenome, Cargo, Salario)
 VALUES
-  ('Lucas', 'Cunha', 'Atendente', 3000.00),
-  ('Amanda', 'Lopes', 'Piloto', 8000.00),
-  (
-    'Rodrigo',
-    'Costa',
-    'Comissário de Bordo',
-    3500.00
-  ),
-  (
-    'Mariana',
-    'Rocha',
-    'Agente de Segurança',
-    2500.00
-  ),
-  (
-    'Gabriel',
-    'Lima',
-    'Engenheiro de Manutenção',
-    6000.00
-  ),
-  ('Luana', 'Oliveira', 'Atendente', 3000.00),
-  ('Rafael', 'Santos', 'Piloto', 8000.00),
-  (
-    'Patricia',
-    'Martins',
-    'Comissário de Bordo',
-    3500.00
-  ),
-  (
-    'Felipe',
-    'Almeida',
-    'Agente de Segurança',
-    2500.00
-  ),
+  ('Eduardo', 'Mendes', 'Atendente', 3000.00),
+  ('Beatriz', 'Souza', 'Piloto', 8000.00),
   (
     'Camila',
-    'Silva',
-    'Engenheiro de Manutenção',
-    6000.00
-  );
+    'Ferreira',
+    'Comissário de Bordo',
+    4000.00
+  ),
+  ('Fábio', 'Rocha', 'Mecânico', 3500.00),
+  ('Gustavo', 'Alves', 'Atendente', 3000.00),
+  ('Ingrid', 'Lima', 'Piloto', 8000.00),
+  (
+    'José',
+    'Oliveira',
+    'Comissário de Bordo',
+    4000.00
+  ),
+  ('Kátia', 'Santos', 'Mecânica', 3500.00),
+  ('Leandro', 'Silva', 'Atendente', 3000.00),
+  ('Mariana', 'Ribeiro', 'Piloto', 8000.00);
 
 -- Inserção de dados na tabela Reserva
 INSERT INTO
   Reserva (IDPassageiro, NumeroVoo, DataReserva)
 VALUES
-  (1, 1, '2023-11-25 09:00:00'),
-  (2, 2, '2023-11-26 10:00:00'),
-  (3, 3, '2023-11-27 11:00:00'),
-  (4, 4, '2023-11-28 12:00:00'),
-  (5, 5, '2023-11-29 13:00:00'),
-  (6, 6, '2023-11-30 14:00:00'),
-  (7, 7, '2023-12-01 15:00:00'),
-  (8, 8, '2023-12-02 16:00:00'),
-  (9, 9, '2023-12-03 17:00:00'),
-  (10, 10, '2023-12-04 18:00:00');
+  (2, 2, '2023-12-05 08:00:00'),
+  (4, 4, '2023-12-07 10:30:00'),
+  (6, 6, '2023-12-09 14:45:00'),
+  (8, 8, '2023-12-11 18:00:00'),
+  (10, 10, '2023-12-13 22:15:00'),
+  (1, 1, '2023-12-04 07:30:00'),
+  (3, 3, '2023-12-06 12:15:00'),
+  (5, 5, '2023-12-08 16:30:00'),
+  (7, 7, '2023-12-10 20:45:00'),
+  (9, 9, '2023-12-12 11:00:00');
 
 -- Inserção de dados na tabela VooAeronave
 INSERT INTO
   VooAeronave (NumeroVoo, IDAeronave, DataAtribuicao)
 VALUES
-  (1, 1, '2023-11-25 08:30:00'),
-  (2, 2, '2023-11-26 09:30:00'),
-  (3, 3, '2023-11-27 10:30:00'),
-  (4, 4, '2023-11-28 11:30:00'),
-  (5, 5, '2023-11-29 12:30:00'),
-  (6, 6, '2023-11-30 13:30:00'),
-  (7, 7, '2023-12-01 14:30:00'),
-  (8, 8, '2023-12-02 15:30:00'),
-  (9, 9, '2023-12-03 16:30:00'),
-  (10, 10, '2023-12-04 17:30:00');
+  (1, 1, '2023-12-04 09:30:00'),
+  (2, 2, '2023-12-05 13:45:00'),
+  (3, 3, '2023-12-06 08:00:00'),
+  (4, 4, '2023-12-07 15:30:00'),
+  (5, 5, '2023-12-08 11:00:00'),
+  (6, 6, '2023-12-09 09:00:00'),
+  (7, 7, '2023-12-10 19:30:00'),
+  (8, 8, '2023-12-11 11:15:00'),
+  (9, 9, '2023-12-12 17:30:00'),
+  (10, 10, '2023-12-13 13:45:00');
 
 -- Inserção de dados na tabela VooPartida
 INSERT INTO
@@ -288,16 +272,16 @@ INSERT INTO
     DataPartida
   )
 VALUES
-  (1, 1, 'A1', '2023-12-01 08:00:00'),
-  (2, 2, 'B2', '2023-12-02 12:00:00'),
-  (3, 3, 'C3', '2023-12-03 16:00:00'),
-  (4, 4, 'D4', '2023-12-04 20:00:00'),
-  (5, 5, 'E5', '2023-12-05 10:30:00'),
-  (6, 6, 'F6', '2023-12-06 14:00:00'),
-  (7, 7, 'G7', '2023-12-07 18:00:00'),
-  (8, 8, 'H8', '2023-12-08 22:00:00'),
-  (9, 9, 'I9', '2023-12-10 05:00:00'),
-  (10, 10, 'J10', '2023-12-11 08:30:00');
+  ('GIG', 1, 'A01', '2023-12-04 10:00:00'),
+  ('GRU', 2, 'B03', '2023-12-05 14:30:00'),
+  ('BSB', 3, 'C05', '2023-12-06 08:45:00'),
+  ('SSA', 4, 'D02', '2023-12-07 16:00:00'),
+  ('FOR', 5, 'E07', '2023-12-08 12:30:00'),
+  ('FLN', 6, 'F04', '2023-12-09 09:15:00'),
+  ('GIG', 7, 'G09', '2023-12-10 20:00:00'),
+  ('CNF', 8, 'H06', '2023-12-11 11:30:00'),
+  ('POA', 9, 'I11', '2023-12-12 18:45:00'),
+  ('CWB', 10, 'J08', '2023-12-13 14:00:00');
 
 -- Inserção de dados na tabela VooChegada
 INSERT INTO
@@ -308,16 +292,16 @@ INSERT INTO
     DataChegada
   )
 VALUES
-  (2, 1, 'A1', '2023-12-01 10:00:00'),
-  (3, 2, 'B2', '2023-12-02 15:00:00'),
-  (4, 3, 'C3', '2023-12-03 18:00:00'),
-  (5, 4, 'D4', '2023-12-05 02:00:00'),
-  (6, 5, 'E5', '2023-12-05 12:30:00'),
-  (7, 6, 'F6', '2023-12-06 16:30:00'),
-  (8, 7, 'G7', '2023-12-07 20:30:00'),
-  (9, 8, 'H8', '2023-12-09 01:00:00'),
-  (10, 9, 'I9', '2023-12-10 07:00:00'),
-  (1, 10, 'J10', '2023-12-11 10:30:00');
+  ('GRU', 1, 'A01', '2023-12-04 12:00:00'),
+  ('GIG', 2, 'B03', '2023-12-05 16:30:00'),
+  ('CNF', 3, 'C05', '2023-12-06 09:45:00'),
+  ('REC', 4, 'D02', '2023-12-07 18:00:00'),
+  ('POA', 5, 'E07', '2023-12-08 15:00:00'),
+  ('CWB', 6, 'F04', '2023-12-09 10:15:00'),
+  ('FOR', 7, 'G09', '2023-12-10 23:00:00'),
+  ('SSA', 8, 'H06', '2023-12-11 13:30:00'),
+  ('FLN', 9, 'I11', '2023-12-12 20:45:00'),
+  ('BSB', 10, 'J08', '2023-12-13 16:00:00');
 
 -- Inserção de dados na tabela Emprego
 INSERT INTO
@@ -328,14 +312,13 @@ INSERT INTO
     DataFimEmprego
   )
 VALUES
-  (1, 1, '2023-11-25 08:00:00', NULL),
-  (2, 2, '2023-11-26 09:00:00', NULL),
-  (3, 3, '2023-11-27 10:00:00', NULL),
-  (4, 4, '2023-11-28 11:00:00', NULL),
-  (5, 5, '2023-11-29 12:00:00', NULL),
-  (6, 6, '2023-11-30 13:00:00', NULL),
-  (7, 7, '2023-12-01 14:00:00', NULL),
-  (8, 8, '2023-12-02 15:00:00', NULL),
-  (9, 9, '2023-12-03 16:00:00', NULL),
-  (10, 10, '2023-12-04 17:00:00', NULL);
-  
+  ('GIG', 1, '2023-01-01', NULL),
+  ('GIG', 2, '2023-01-02', NULL),
+  ('GRU', 3, '2023-01-03', NULL),
+  ('GRU', 4, '2023-01-04', '2023-06-01'),
+  ('SSA', 5, '2023-01-05', '2023-12-31'),
+  ('SSA', 6, '2023-01-06', NULL),
+  ('BSB', 7, '2023-01-07', NULL),
+  ('BSB', 8, '2023-01-08', '2023-11-30'),
+  ('GIG', 9, '2023-01-09', NULL),
+  ('GRU', 10, '2023-01-10', NULL);
