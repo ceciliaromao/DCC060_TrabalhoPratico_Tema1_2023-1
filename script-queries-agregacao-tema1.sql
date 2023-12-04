@@ -1,14 +1,40 @@
--- Query 1: Contar o número total de voos disponíveis
+-- Query 1: calcula o total de lugares, lugares livres, lugares ocupados e a porcentagem de ocupação em cada voo com base na capacidade da aeronave
 SELECT
-  COUNT(*) AS TotalVoos
+  V.NumeroVoo,
+  A.Capacidade AS TotalLugares,
+  COUNT(B.NumeroAssento) AS LugaresOcupados,
+  A.Capacidade - COUNT(B.NumeroAssento) AS LugaresLivres,
+  CONCAT(
+    ROUND(
+      (COUNT(B.NumeroAssento) * 100.0) / A.Capacidade,
+      2
+    ),
+    '%'
+  ) AS PorcentagemOcupacao
 FROM
-  Voo;
+  Voo V
+  LEFT JOIN VooAeronave VA ON V.NumeroVoo = VA.NumeroVoo
+  LEFT JOIN Aeronave A ON VA.IDAeronave = A.IDAeronave
+  LEFT JOIN Bilhete B ON V.NumeroVoo = B.NumeroVoo
+GROUP BY
+  V.NumeroVoo,
+  A.Capacidade
+ORDER BY
+  V.NumeroVoo;
 
--- Query 2: Calcular a média de capacidade das aeronaves
+
+-- Query 2: Calcular a média de preços dos bilhetes e o valor total de vendas por tipo de aeronave
 SELECT
-  AVG(Capacidade) AS MediaCapacidadeAeronaves
+  A.TipoAeronave,
+  AVG(B.PrecoBilhete) AS MediaPrecoBilhete,
+  SUM(B.PrecoBilhete) AS ValorTotalVendas
 FROM
-  Aeronave;
+  Aeronave A
+  LEFT JOIN VooAeronave VA ON A.IDAeronave = VA.IDAeronave
+  LEFT JOIN Voo V ON VA.NumeroVoo = V.NumeroVoo
+  LEFT JOIN Bilhete B ON V.NumeroVoo = B.NumeroVoo
+GROUP BY
+  A.TipoAeronave;
 
 -- Query 3: Encontrar a quantidade de reservas feitas por passageiro
 SELECT
@@ -41,31 +67,22 @@ SELECT
 FROM
   Bilhete B;
 
--- Query 6: Contar o número total de reservas por passageiro
+-- Query 6: Aeroporto com o maior número de voos de partida
 SELECT
-  P.IDPassageiro,
-  P.Nome,
-  P.Sobrenome,
-  COUNT(R.IDReserva) AS TotalReservas
+  AP.NomeAeroporto AS AeroportoPartida,
+  COUNT(V.NumeroVoo) AS QuantidadeVoosPartida
 FROM
-  Passageiro P
-  LEFT JOIN Reserva R ON P.IDPassageiro = R.IDPassageiro
+  Voo V
+  LEFT JOIN VooPartida VP ON V.NumeroVoo = VP.NumeroVoo
+  LEFT JOIN Aeroporto AP ON VP.CodigoAeroporto = AP.CodigoAeroporto
 GROUP BY
-  P.IDPassageiro;
+  AP.NomeAeroporto
+ORDER BY
+  QuantidadeVoosPartida DESC
+LIMIT
+  1;
 
--- Query 7: Calcular o preço médio dos bilhetes por tipo de aeronave
-SELECT
-  A.TipoAeronave,
-  AVG(B.PrecoBilhete) AS PrecoMedio
-FROM
-  Aeronave A
-  LEFT JOIN VooAeronave VA ON A.IDAeronave = VA.IDAeronave
-  LEFT JOIN Voo V ON VA.NumeroVoo = V.NumeroVoo
-  LEFT JOIN Bilhete B ON V.NumeroVoo = B.NumeroVoo
-GROUP BY
-  A.TipoAeronave;
-
--- Query 8: Encontrar o número total de voos de chegada por aeroporto
+-- Query 7: Encontrar o número total de voos de chegada por aeroporto
 SELECT
   A.CodigoAeroporto,
   A.NomeAeroporto,
@@ -76,13 +93,7 @@ FROM
 GROUP BY
   A.CodigoAeroporto;
 
--- Query 9: Calcular a capacidade total de todas as aeronaves
-SELECT
-  SUM(Capacidade) AS CapacidadeTotal
-FROM
-  Aeronave;
-
--- Query 10: Encontrar o menor e o maior salário dos funcionários
+-- Query 8: Encontrar o menor e o maior salário dos funcionários
 SELECT
   MIN(Salario) AS MenorSalario,
   MAX(Salario) AS MaiorSalario
