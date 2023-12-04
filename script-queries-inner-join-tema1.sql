@@ -56,7 +56,7 @@ FROM
   FuncionarioAeroporto F
   INNER JOIN Emprego E ON F.IDFuncionario = E.IDFuncionario
 WHERE
-  E.CodigoAeroporto = 1;
+  E.CodigoAeroporto = 'GIG';
 
 -- Query 6: Obter detalhes da reserva de um passageiro, incluindo informações do voo
 SELECT
